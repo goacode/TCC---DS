@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kital Um Churras</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+        <!-- Começo da Navbar -->
+
+    <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
+
+        <div class="container-fluid">
+
+            <img src="./img/Boii.png" height="90" width="90" alt="Logo" class="d-inline-block align-text-top">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
+
+                <ul class="navbar-nav">
+
+                    <li class="nav-item dropdown me-3">
+
+                        <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+
+                            Carnes
+
+                        </a>
+
+                        <ul class="dropdown-menu">
+
+                            <li><a class="dropdown-item" href="#">Bovino</a></li>
+
+                            <li><a class="dropdown-item" href="#">Suíno</a></li>
+
+                            <li><a class="dropdown-item" href="#">Cordeiro</a></li>
+
+                            <li><a class="dropdown-item" href="#">Linguiças</a></li>
+
+                            <li><a class="dropdown-item" href="#">Frango</a></li>
+
+                            <li><a class="dropdown-item" href="#">Outros</a></li>
+
+                        </ul>
+
+                    </li>
+
+                    <li class="nav-item me-3">
+
+                        <a class="nav-link text-light" href="#">Kits / Evento</a>
+
+                    </li>
+
+                    <li class="nav-item me-3">
+
+                        <a class="nav-link text-light" href="#">Promoções</a>
+
+                    </li>
+
+                    <li class="nav-item me-3">
+
+                        <a class="nav-link text-light" href="#">Outros</a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div class="d-flex ms-auto align-items-center">
+
+                <div class="text-center mx-3">
+
+                    <a class="navbar-brand account-link" href="Conta.html">
+
+                        <img src="./img/user.png" alt="Logo" width="24" height="24"
+                            class="d-inline-block align-text-top">
+
+                        Conta
+
+                    </a>
+
+                </div>
+
+                <div class="text-center mx-3">
+
+                    <a class="navbar-brand cart-link" href="#">
+
+                        <img src="./img/Carrinho.png" alt="Logo" width="24" height="24"
+                            class="d-inline-block align-text-top">
+
+                        Carrinho
+
+                    </a>
+
+                </div>
+
+                <div class="text-center mx-3">
+
+                    <a class="navbar-brand support-link" href="#">
+
+                        <img src="./img/help.png" alt="Logo" width="24" height="24"
+                            class="d-inline-block align-text-top">
+
+                        Suporte
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!-- Fim da Navbar -->
+
+
+    <!-- Conteudo(Formulario Registro) -->
+
+    <div class="content">
+
+
+
+        <div class="d-flex justify-content-center">
+
+
+
+            <div class="row justify-content-center">
+
+                <div class="form-container">
+
+                    <form id="registro" method="post" action="script.php" class="needs-validation" novalidate>
+
+                        <div class="text-center">
+
+                            <img src="./img/cad.png" alt="uslog" width="50px" height="50px">
+
+                            <p><strong>Cadastro de Usuário</strong></p>
+
+                            <p>Preencha as informações para sua conta</p>
+                            
+                            <div class="row">
+
+                            <div class="col-md-5 ">
+
+                           <p><input type="text" class="form-control" name="nome" id="nome" placeholder="Nome" required></p>
+
+                            </div>
+
+                            <div class="col-md-7 ">
+
+                            <p><input type="text" class="form-control" name="email" id="email" required placeholder="E-mail"></p>
+
+
+                            </div>
+                            
+                            </div>
+
+                            <div class="row">
+
+                            <div class="col-md-6 ">
+
+                            <div class="input-group mb-3">
+
+                                <input type="password" class="form-control" name="senha" id="senha" required
+                                    placeholder="Senha">
+
+                                <span class="input-group-text toggle-password" onclick="togglePassword('senha', this)">
+
+                                    <img src="img/olho.png" alt="" width="24">
+
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6 ">
+
+
+                            <div class="input-group mb-3">
+
+                                <input type="password" class="form-control" name="ConfSenha" id="ConfSenha" required
+                                    placeholder="Confirmar Senha">
+
+                                <span class="input-group-text toggle-password"
+                                    onclick="togglePassword('ConfSenha' , this)">
+
+                                    <img src="img/olho.png" alt="" width="24">
+
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <p><input type="text" class="form-control" name="cep" id="cep" placeholder="CEP" required data-mask="00000-000" oninput="debounceBuscarCep()"></p>
+
+                            <p><input type="text" class="form-control" name="logradouro" id="logradouro" placeholder="Logradouro" required></p>
+
+                            <p><input type="text" class="form-control" name="bairro" id="bairro" placeholder="Bairro" required></p>
+
+                            <div class="row">
+
+                            <div class="col-md-9 ">
+
+
+                            <p><input type="text" class="form-control" name="localidade" id="localidade" placeholder="Localidade" required></p>
+
+                            </div>
+
+
+                            <div class="col-md-3 ">
+
+                            <p><input type="text" class="form-control" name="UF" id="UF" placeholder="UF" required></p>
+
+                            </div>
+
+                            <input type="submit" class="btn btn-success mt-3 w-100" value="Cadastrar-se">
+
+                        </div>
+
+                    </div>
+
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Conteudo(Formulario Registro)-End -->
+
+
+    <!-- Footer Inicio -->
+
+
+    <div id="footer">
+
+        <p>Projeto Foda</p>
+
+        <p>Desenvolvido por Boligas e Little Beauty</a></p>
+
+        <p>Contato: PauloViado@gmail.com</p>
+
+        <p>Siga-nos nas redes sociais:
+
+            <a>Facebook</a> |
+
+            <a>Twitter</a> |
+
+            <a>Instagram</a>
+
+        </p>
+
+
+
+    </div>
+
+        <!-- Footer Fim -->
+
+
+        <!-- Scripts -->
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script type="text/javascript" src="jquery.mask.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script type="text/javascript" src="personalizar.js"></script>
+
+    <script src="javaSC.js"></script>
+
+        <!-- Scripts -->
+
+
+</body>
+
+</html>
