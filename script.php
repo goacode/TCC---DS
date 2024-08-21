@@ -21,9 +21,24 @@ $localidade = $_POST['localidade'];
 
 $uf = $_POST['UF'];
 
+$cpf = $_POST ['cpf'];
+
+$complemento = $_POST['complemento'];
+
+$numeroLocal = $_POST['numero'];
+
+
+function padronizarCPF($cpf) {
+
+    return preg_replace('/\D/', '', $cpf); 
+}
+
+$cpfFormatado = padronizarCPF($cpf);
+
+
 try{
 
-    $comando = "INSERT INTO tb_usuario (Nome, Email, Senha, Cep, Logradouro, Bairro, Localidade, UF) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    $comando = "INSERT INTO tb_usuario (Nome, Email, Senha, Cep, Logradouro, Bairro, Localidade, UF, CPF, Complemento, Numero_local) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,?)";
 
     $s = $con->prepare($comando);
 
@@ -43,6 +58,11 @@ try{
 
     $s->bindParam(8, $uf);
 
+    $s->bindParam(9, $cpfFormatado);
+
+    $s->bindParam(10, $complemento);
+
+    $s->bindParam(11, $numeroLocal);
 
     $s->execute();
 

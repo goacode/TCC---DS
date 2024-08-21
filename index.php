@@ -18,7 +18,7 @@ include("conexao.php");
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Kital Um Churras</title>
+    <title>Kital  Churras</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -131,16 +131,7 @@ include("conexao.php");
 
                 </div>
 
-                <div class="text-center mx-3">
-
-                    <a class="navbar-brand support-link" href="#">
-
-                        <img src="./img/help.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top">
-                        Suporte
-
-                    </a>
-
-                </div>
+               
 
                 <?php if (isset($_SESSION['nome'])): ?>
 
@@ -181,19 +172,104 @@ include("conexao.php");
 
     <div id="footer">
 
-        <p>Projeto Foda</p>
+    <div class="row">
 
-        <p>Desenvolvido por Boligas e Little Beauty</p>
+    <div class="col-md-4">
 
-        <p>Contato: PauloViado@gmail.com</p>
+        <div class="d-flex justify-content-center" >
 
-        <p>Siga-nos nas redes sociais:
+        <div class="col-md-6">
 
-            <a href="#">Facebook</a> |
+        <h4>Contate-nos</h4>
+        
+        <hr class="mt-2" width="250px">
 
-            <a href="#">Twitter</a> |
+        </div>
 
-            <a href="#">Instagram</a>
+        </div>
+
+        <div class="d-flex justify-content-center" >
+
+        <p>(11) XXXXX-XXXX</p>  
+
+        <img src="./img/whatsapp.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ms-1 mt-1">
+
+        </div>
+    
+
+        <div class="d-flex justify-content-center" >
+
+        <p>ContatoChurras@gmail.com</p>  
+
+        <img src="./img/mail.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ms-1 mt-1">
+
+        </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+
+        <div class="d-flex justify-content-center" >
+
+        <div class="col-md-6">
+
+        <h4>Desenvolvido Por</h4> 
+
+        <hr  class="mt-2"  width="250px">
+
+        </div>
+
+        </div>
+
+        <p>Gustavo O. Andrade  <img src="./img/hub.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ms-1"> | Back-End </p>
+
+        
+
+
+        <p>Joâo M. Lopes Montes  <img src="./img/hub.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ms-1">  | Front-End </p>
+
+        <p> Mariane M.   <img src="./img/hub.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ms-1">  | Design Director </p>
+
+        <p> Sheila S.   <img src="./img/hub.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ms-1"> | Documentation</p>
+
+        </div>
+
+        <div class="col-md-4">
+
+
+        <div class="d-flex justify-content-center" >
+
+        <div class="col-md-6">
+
+        <h4>Aceitamos</h4> 
+
+        <hr  class="mt-2" width="250px">
+
+        </div>
+
+
+        </div>
+        
+      
+
+       <img src="./img/card.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top ms-1"> 
+
+       <img src="./img/bitcoin.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top ms-1"> 
+
+       <img src="./img/vr.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top ms-1"> 
+
+       </div>
+
+       </div>
+       
+        <p >Siga-nos nas redes sociais:
+
+            <a href="#">Facebook <img src="./img/facebook.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ">  </a> |
+
+            <a href="#">Twitter <img src="./img/twitter.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ">  </a> |
+
+            <a href="#">Instagram <img src="./img/instagram.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ">  </a>
 
         </p>
 

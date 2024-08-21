@@ -3,19 +3,45 @@ session_start();
 
 include("conexao.php");
 
-$email = $_POST['email'];
+$input = $_POST['inputLog'];
 
 $senha = $_POST['senha'];
 
+
+function padronizar($input) {
+
+    return preg_replace('/\D/', '', $input); 
+}
+
+$inputFormatado = padronizar($input);
+
+
+
+
+function isEmail($inputFormatado) {
+
+    return filter_var($inputFormatado, FILTER_VALIDATE_EMAIL);
+}
+
 try {
 
-    $comando = "SELECT * FROM tb_usuario WHERE Email = ?";
+    if (isEmail($inputFormatado)) {
 
-    $s = $con->prepare($comando);
+        // Se for  email, verificar se o email existe
 
-    $s->bindParam(1, $email);
+        $s = $con->prepare("SELECT * FROM tb_usuario WHERE Email = ?");
+
+    } else {
+
+        // Se não email, vai ver se o cpf exist
+
+        $s = $con->prepare("SELECT * FROM tb_usuario WHERE CPF = ?");
+    }
+
+    $s->bindParam(1, $inputFormatado);
 
     $s->execute();
+
 
     if ($s->rowCount() > 0) {
 
@@ -46,7 +72,7 @@ try {
         
     } else {
 
-        echo "E-mail não encontrado.";
+        echo "E-mail  ou CPF nao encontrado.";
 
     }
 } catch(PDOException $e) {
