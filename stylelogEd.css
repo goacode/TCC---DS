@@ -1,0 +1,45 @@
+html,body{
+
+    background-color: rgb(143, 141, 140);
+    height: 100%;
+    margin: 0;
+}
+
+
+#Ed{
+    display: flex;
+    justify-content: center;
+    text-decoration:underline;
+    color: black;
+    font-size: 50px;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;    
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+}   
+
+
+.error-message {
+    color: white;
+    background-color: #ff4d4d;
+    border: 1px solid red;
+    padding: 10px;
+    border-radius: 5px;
+    display: block; 
+    margin: 4px;
+    display: flex;
+    justify-content: space-between; 
+
+}
+
+

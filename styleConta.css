@@ -1,0 +1,128 @@
+body{
+
+    height: 100%;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+.navbar-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+.account-link,
+.cart-link,
+.support-link {
+    font-size: 14px;
+    color: white;
+}
+
+.dropdown-item {
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+    background-color: rgb(187, 126, 12);
+    color: white;
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+    background-color: rgb(187, 126, 12);
+    color: white;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    background-color:  rgb(216, 171, 87);
+    overflow-x: hidden;
+}
+
+.btn-large {
+    width: 100%; 
+    max-width: 400px; 
+}
+
+#footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+#footer p {
+    margin: 5px 0;
+}
+
+#footer a {
+    color: #1e90ff;
+    text-decoration: none;
+}
+
+#footer a:hover {
+    text-decoration: underline;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    width: 100%;
+    padding: 20px; 
+    box-sizing: border-box; 
+    margin-top: 130px;
+}
+
+.error-message {
+    color: white;
+    background-color: #ff4d4d;
+    border: 1px solid red;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px; 
+    display: block; 
+    margin: 5px;
+    display: flex;
+    justify-content: space-between; 
+    margin-top: 110px; 
+}
+
+
+html{
+    scroll-behavior: smooth;
+    scroll-padding-top: 110px;
+
+}
+
+.Navegacao{
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+
+@media screen and (max-width: 769px) {
+
+    .error-message {
+        margin-top:7em;
+    }
+
+}

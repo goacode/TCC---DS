@@ -38,59 +38,63 @@ function togglePassword(inputId, iconElement) {
 
 
 // Função para buscar o CEP
-function buscarCep() 
+function buscarCep() {
 
-{
+    const cep = document.getElementById('cep').value;
 
-    //Pega o cep
-  const cep = document.getElementById('cep').value;
-
-  //Transforma a mascara 00000-000 -> 00000000, Via Cep busca apenas nesse formato
-
-  const cepSemMascara = cep.replace(/\D/g, '');
+    const cepSemMascara = cep.replace(/\D/g, '');
 
 
+    const fields = ['logradouro', 'bairro', 'localidade', 'UF'];
 
-  if (cepSemMascara.length === 8) {
+    if (cepSemMascara.length === 8) {
 
-      fetch(`https://viacep.com.br/ws/${cepSemMascara}/json/`)
+        fetch(`https://viacep.com.br/ws/${cepSemMascara}/json/`)
 
-          .then(response => response.json())
+            .then(response => response.json())
 
-          .then(data => {
+            .then(data => {
 
-              if (data.erro) {
+                if (data.erro) {
 
-                  document.getElementById('logradouro').value = '';
-                  document.getElementById('bairro').value = '';
-                  document.getElementById('localidade').value = '';
-                  document.getElementById('UF').value = '';
+                    fields.forEach(id => document.getElementById(id).value = '');
 
-              } else {
+                    document.getElementById('UF').value = '';
 
-                  document.getElementById('logradouro').value = data.logradouro;
-                  document.getElementById('bairro').value = data.bairro;
-                  document.getElementById('localidade').value = data.localidade;
-                  document.getElementById('UF').value = data.uf;
-              }
+                } else {
 
-          })
+                    document.getElementById('logradouro').value = data.logradouro;
 
-          .catch(error => {
+                    document.getElementById('bairro').value = data.bairro;
 
-              console.error(error);
+                    document.getElementById('localidade').value = data.localidade;
 
-              alert('Erro ao buscar CEP!');
+                    document.getElementById('UF').value = data.uf;
 
-          });
+                }
 
-  } else {
+                // Remove disabled 
 
-      document.getElementById('logradouro').value = '';
-      document.getElementById('bairro').value = '';
-      document.getElementById('localidade').value = '';
-      document.getElementById('UF').value = '';
-  }
+                fields.forEach(id => document.getElementById(id).removeAttribute('disabled'));
+
+            })
+
+            .catch(error => {
+
+                console.error(error);
+
+                alert('Erro ao buscar CEP!');
+
+            });
+
+    } else {
+
+        fields.forEach(id => document.getElementById(id).value = '');
+
+        document.getElementById('UF').value = '';
+
+        fields.forEach(id => document.getElementById(id).setAttribute('disabled', 'true'));
+    }
 
 }
 
@@ -98,11 +102,45 @@ let debounceTimeout;
 
 function debounceBuscarCep() {
 
-  clearTimeout(debounceTimeout);
+    clearTimeout(debounceTimeout);
 
-  debounceTimeout = setTimeout(buscarCep, 200); 
+    debounceTimeout = setTimeout(buscarCep, 200);   
+    
 }
 
-//input
-
 document.getElementById('cep').addEventListener('input', debounceBuscarCep);
+
+//CPF E CNPJ
+
+document.getElementById('pessoa').addEventListener('change', function() {
+
+    const inputContainer = document.getElementById('inputContainer');
+
+    const selectedValue = this.value;
+
+
+
+    if (selectedValue === 'Jurídica') {
+
+        inputContainer.innerHTML = '<input type="text" class="form-control" name="cnpj" id="cnpj" placeholder="CNPJ" required>';
+
+    } else {
+
+        inputContainer.innerHTML = '<input type="text" class="form-control" name="cpf" id="cpf" placeholder="CPF" required>';
+    }
+
+    setTimeout(() => {
+
+        if (selectedValue === 'Jurídica') {
+
+            $('#cnpj').mask('00.000.000/0000-00');
+
+        } else {
+
+            $('#cpf').mask('000.000.000-00');
+
+        }
+
+    }, 0);
+
+});

@@ -1,11 +1,13 @@
 <?php
+
 session_start();
 
 include("conexao.php");
 
-$input = $_POST['inputLog'];
+$input = $_POST['inputlogin'];
 
 $senha = $_POST['senha'];
+
 
 
 function padronizar($input) {
@@ -49,6 +51,15 @@ try {
 
         if (password_verify($senha, $usuario['cli_senha'])) {
 
+            if ($usuario['cli_role'] !== 'edit') {
+
+                $_SESSION['error_message'] = 'Acesso negado.';
+
+                header("Location:LoginEditor.php");
+
+                exit();
+            }
+
             $_SESSION['id_cliente'] = $usuario['id_cliente']; 
 
             $nomeCompleto = $usuario['cli_nome'];
@@ -63,30 +74,34 @@ try {
 
             $_SESSION['nome'] = $nomeFormatado;
 
-            header("Location: index.php");
+            header("Location:Edicao.php");
 
             exit();
 
         } else {
 
-            $_SESSION['error_message'] = 'Dados Inexistentes ou Incorretos.';
-            header("Location: conta.php");
+            $_SESSION['error_message'] = 'Acesso Negado.';
+            header("Location:LoginEditor.php");
             exit();
         }
         
     } else {
 
-        $_SESSION['error_message'] = 'Dados Inexistentes ou Incorretos.';
-        header("Location: conta.php");
+        $_SESSION['error_message'] = 'Acesso Negado.';
+        header("Location:LoginEditor.php");
         exit();
 
     }
 } catch(PDOException $e) {
 
     $_SESSION['error_message'] = "Erro: " . $e->getMessage();
-    header("Location: conta.php");
+    header("Location:LoginEditor.php");
     exit();
 }
 
 $con = null;
+
+
+
+
 ?>

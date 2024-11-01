@@ -1,5 +1,6 @@
 <?php
-session_start(); 
+
+
 
 include("conexao.php");
 
@@ -25,7 +26,7 @@ $datanasc = $_POST['datanasc'];
 
 $pessoa = $_POST['pessoa'];
 
-$role = 'user';
+$role = 'edit';
 
 if (isset($_POST['cpf'])){
 
@@ -168,9 +169,9 @@ try{
 
     $_SESSION['nome'] = $nomeFormatado;
 
-    header("location: index.php");
-
     exit();
+
+    header("location: AdicionarEditor.html");
 
 } catch(PDOException $e) {
     
@@ -179,5 +180,13 @@ try{
 
 $con = null;
 
-?>
 
+
+
+
+
+
+
+
+
+?>

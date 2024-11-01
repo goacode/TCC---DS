@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 
 <html lang="pt-br">
@@ -12,7 +18,9 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styleConta.css">
+
+    <link rel="icon" href="./img/Boii.png">
 
 </head>
 
@@ -20,11 +28,13 @@
     
     <!-- Começo da Navbar -->
 
+<div class="Navegacao">
+
 <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
 
     <div class="container-fluid">
 
-        <img src="./img/Boii.png" height="90" width="90" alt="Logo" class="d-inline-block align-text-top">
+    <a href="index.php"><img src="./img/Boii.png" height="90" width="90" alt="Logo" class="d-inline-block align-text-top"></a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -35,27 +45,17 @@
 
             <ul class="navbar-nav">
 
-                <li class="nav-item dropdown me-3">
+            <li class="nav-item me-3">
 
-                    <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Carnes</a>
+                <a class="nav-link text-light" href="index.php">Home</a>
 
-                    <ul class="dropdown-menu">
+            </li>
+    
+            <li class="nav-item me-3">
 
-                        <li><a class="dropdown-item" href="#">Bovino</a></li>
+                <a class="nav-link text-light" href="Carnes.php">Carnes</a>
 
-                        <li><a class="dropdown-item" href="#">Suíno</a></li>
-
-                        <li><a class="dropdown-item" href="#">Cordeiro</a></li>
-
-                        <li><a class="dropdown-item" href="#">Linguiças</a></li>
-
-                        <li><a class="dropdown-item" href="#">Frango</a></li>
-
-                        <li><a class="dropdown-item" href="#">Outros</a></li>
-
-                    </ul>
-
-                </li>
+            </li>
 
                 <li class="nav-item me-3">
 
@@ -63,11 +63,6 @@
 
                 </li>
 
-                <li class="nav-item me-3">
-
-                    <a class="nav-link text-light" href="#">Promoções</a>
-
-                </li>
 
                 <li class="nav-item me-3">
 
@@ -81,7 +76,7 @@
 
         <div class="d-flex ms-auto align-items-center">
 
-            <div class="text-center mx-3">
+            <div class="text-center mx-2">
 
                 <a class="navbar-brand account-link" href="#">
 
@@ -93,7 +88,7 @@
 
             </div>
 
-            <div class="text-center mx-3">
+            <div class="text-center mx-3 ">
 
                 <a class="navbar-brand cart-link" href="#">
 
@@ -113,9 +108,28 @@
 
 </nav>
 
+</div>
 <!-- Fim da Navbar -->
 
 <!-- Conteudo(Formularios) -->
+ 
+<?php if (isset($_SESSION['error_message'])): ?>
+
+<p class="error-message">
+
+    <?php 
+
+    echo $_SESSION['error_message'];
+
+    echo '<img src="./img/erro.png" alt="Logo" width="25" height="25" >';
+
+    unset($_SESSION['error_message']); 
+
+    ?>
+
+</p>
+
+<?php endif; ?>
 
 <div class="content">
 
@@ -158,6 +172,10 @@
             </div>
 
         </div>
+
+
+
+     
 
         <div class="col-12 col-md-6 mb-3">
 
@@ -203,7 +221,6 @@
 
         <h4>Contate-nos</h4>
         
-        <hr class="mt-2" width="250px">
 
         </div>
 
@@ -226,6 +243,23 @@
 
         </div>
 
+        <div class="d-flex justify-content-center" >
+
+    <p>SAC:(11)XXXXX-XXXX</p>  
+
+    <img src="./img/whatsapp.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ms-1 mt-1">
+
+    </div>
+
+    <div class="d-flex justify-content-center" >
+
+    <p>Av. Santos Drummond 859.</p>
+
+    <img src="./img/web-house.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ms-1 mt-1">
+
+
+    </div>
+
         </div>
 
         <div class="col-md-4">
@@ -237,7 +271,6 @@
 
         <h4>Desenvolvido Por</h4> 
 
-        <hr  class="mt-2"  width="250px">
 
         </div>
 
@@ -248,7 +281,7 @@
         
 
 
-        <p>Joâo M. Lopes Montes  <img src="./img/hub.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ms-1">  | Front-End </p>
+        <p>João M. Lopes Montes  <img src="./img/hub.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ms-1">  | Front-End </p>
 
         <p> Mariane M.   <img src="./img/hub.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ms-1">  | Design Director </p>
 
@@ -265,7 +298,6 @@
 
         <h4>Aceitamos</h4> 
 
-        <hr  class="mt-2" width="250px">
 
         </div>
 

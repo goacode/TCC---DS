@@ -1,0 +1,191 @@
+
+a {
+    text-decoration: none;
+}
+
+.navbar-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0;
+    
+}
+
+.account-link,
+.cart-link{
+    font-size: 14px;
+    color: white;
+}
+
+.dropdown-item {
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+    background-color: rgb(187, 126, 12);
+    color: white;
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+    background-color: rgb(187, 126, 12);
+    color: white;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    background-color: rgb(216, 171, 87);
+    overflow-x: hidden;
+}
+
+
+
+#footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+#footer p {
+    margin: 5px 0;
+}
+
+#footer a {
+    color: #1e90ff;
+    text-decoration: none;
+}
+
+#footer a:hover {
+    text-decoration: underline;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px; 
+    box-sizing: border-box; 
+    flex: auto;
+    
+}
+
+.Navegacao{
+    position: fixed;
+    width: 100%;
+    z-index: 1000; 
+}
+
+
+
+.flecha::after{
+    display: none;
+}
+
+
+.flecha{
+    font-size: 14px;
+}
+
+.flechacarne::after{
+    display: none;
+}
+
+
+.flechacarne{
+    font-size: 16px;
+}
+
+
+
+.Info{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin-top: 190px;
+    padding-left: 2em;
+    width: 30vw;
+   border: black 2px;
+   border-radius: 4em;    
+}
+
+
+.Info h2{
+    cursor: pointer;
+    font-size: 18px;
+    background-color: #333;
+    color: white;
+    padding: 0.5em;
+    margin:1;
+    border-radius: 4em;   
+    font-weight: bold; 
+}
+
+
+#item1:hover{
+    background-color: orange;
+ transition: 1.5ms;
+}
+
+#item2:hover{
+    background-color: orange;
+ transition: 1.5ms;
+}
+
+#item3:hover{
+    background-color: orange;
+ transition: 1.5ms ease;
+}
+
+
+@media  screen and (max-width: 769px)  {
+    .Info {
+        width: 50vw;
+    }
+    
+}
+
+
+.formularios{
+    display: flex;
+    justify-content: center;
+    margin-left: 50px;
+   
+}
+
+.formularios h3{
+ font-weight: bold;
+}
+
+.form {
+    background-color: rgb(216, 171, 87) ;
+    border-radius: 5px;
+    width: 800px;
+  margin: 1em;
+}
+
+
+@media screen and (max-width: 769px) {
+
+    .form {
+        background-color: rgb(216, 171, 87) ;
+        border-radius: 5px;
+        width: 250px;
+        margin: 1em;
+
+    }
+
+}
