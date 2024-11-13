@@ -80,6 +80,7 @@ body {
     padding: 20px; 
     box-sizing: border-box; 
     flex: auto;
+    margin-top: 6em
     
 }
 
@@ -132,6 +133,10 @@ body {
     margin:1;
     border-radius: 4em;   
     font-weight: bold; 
+    margin: 10px 0;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
 }
 
 
@@ -189,3 +194,140 @@ body {
     }
 
 }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media screen and (max-width: 769px) {
+   
+
+   
+
+    .Navegacao {
+        position: sticky; 
+        top: 0;
+        z-index: 1000;
+    }
+
+
+
+    .Info {
+        width: 80vw; 
+        padding: 10px;
+        margin-top: 20px;
+        padding-left: 0;
+    }
+
+    .Info h2 {
+        margin: 10px 0;
+        font-size: 16px;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .form-container {
+        width: 100%; 
+        margin: 0;
+    }
+
+    .formularios {
+        flex-direction: column;
+        justify-content: flex-start;
+        margin-left: 0;
+    }
+
+    .form {
+        width: 100%; 
+        margin: 1em 0;
+    }
+
+   
+
+   
+   
+    .content {
+        width: 100%;
+        flex-direction: column;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+
+    .dropdown-item {
+        font-size: 14px; /* Ajuste da fonte para itens no dropdown */
+    }
+
+    #item1:hover,
+    #item2:hover,
+    #item3:hover {
+        background-color: orange;
+        transition: 0.3s ease;
+    }
+
+
+    
+
+}
+
+
+
+
+
+.Msg {
+    color: rgb(0, 0, 0);
+    background-color: #89cf4f;
+    border: 1px solid rgb(7, 156, 2);
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px; 
+    display: block; 
+    margin: 5px;
+    display: flex;
+    justify-content: space-between; 
+    margin-top: 110px; 
+}
+
+
+
+
+.cart-menu {
+    font-size: 18px;
+    color: white;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 600px;
+    height: 100%;
+    background-color: #333;
+    padding: 20px;
+    padding-left: 0%;
+    display: none; 
+    overflow-y: auto;
+    z-index: 1000; 
+}
+
+
+@media screen and (max-width: 769px) {
+    .cart-menu {
+        font-size: 15px ;
+        width: 300px ;
+    }
+ }
+
+
+ #cartItemsList li{
+    margin-bottom: 0.3em;
+    list-style: none;
+
+ }
+
+ #butoesdelcarro{
+    padding-left: 1em;
+ }

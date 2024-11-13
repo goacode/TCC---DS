@@ -170,7 +170,7 @@ $resultado5 = buscarCarnesPorTipo($con, 'frango', $minValor, $maxValor);
 
                     <li class="nav-item me-3">
 
-                        <a class="nav-link text-light" href="#">Kits / Evento</a>
+                        <a class="nav-link text-light" href="kit.php">Kits / Evento</a>
 
                     </li>
 
@@ -318,7 +318,8 @@ $resultado5 = buscarCarnesPorTipo($con, 'frango', $minValor, $maxValor);
 
         }
 
-    echo "<h4 style='text-decoration:underline'>Total:" . number_format($total,2,',','.') .  "R$" . "</h4>"
+    echo "<h4 style='text-decoration:underline'>Total:" . "R$ " .  number_format($total,2,',','.') . "</h4>"
+    
         ?>
 
     </ul>
@@ -804,41 +805,41 @@ foreach ($resultado5 as $row) {
 
         <!-- Footer Inicio -->
 
-    <div id="footer">
+        <div id="footer">
 
-    <div class="row">
+<div class="row">
 
-    <div class="col-md-4">
+<div class="col-md-4">
 
-        <div class="d-flex justify-content-center" >
+    <div class="d-flex justify-content-center" >
 
-        <div class="col-md-6">
+    <div class="col-md-6">
 
-        <h4>Contate-nos</h4>
-        
-
-        </div>
-
-        </div>
-
-        <div class="d-flex justify-content-center" >
-
-        <p>(11) XXXXX-XXXX</p>  
-
-        <img src="./img/whatsapp.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ms-1 mt-1">
-
-        </div>
+    <h4 style="text-decoration:underline;">Contate-nos</h4>
     
 
-        <div class="d-flex justify-content-center" >
+    </div>
 
-        <p>ContatoChurras@gmail.com</p>  
+    </div>      
 
-        <img src="./img/mail.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ms-1 mt-1">
+    <div class="d-flex justify-content-center" >
 
-        </div>
+    <p>(11)XXXXX-XXXX</p>  
 
-        <div class="d-flex justify-content-center" >
+    <img src="./img/whatsapp.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ms-1 mt-1">
+
+    </div>
+
+
+    <div class="d-flex justify-content-center" >
+
+    <p>ContatoChurras@gmail.com</p>  
+
+    <img src="./img/mail.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ms-1 mt-1">
+
+    </div>
+
+    <div class="d-flex justify-content-center" >
 
     <p>SAC:(11)XXXXX-XXXX</p>  
 
@@ -855,73 +856,80 @@ foreach ($resultado5 as $row) {
 
     </div>
 
-        </div>
+    </div>
 
-        <div class="col-md-4">
-
-
-        <div class="d-flex justify-content-center" >
-
-        <div class="col-md-6">
-
-        <h4>Desenvolvido Por</h4> 
+    <div class="col-md-4">
 
 
-        </div>
+    <div class="d-flex justify-content-center" >
 
-        </div>
+    <div class="col-md-6">
 
-        <p>Gustavo O. Andrade  <img src="./img/hub.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ms-1"> | Back-End </p>
+    <h4 style="text-decoration:underline;">Desenvolvido Por</h4> 
 
-        
-
-
-        <p>João M. Lopes Montes  <img src="./img/hub.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ms-1">  | Front-End </p>
-
-        <p> Mariane M.   <img src="./img/hub.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ms-1">  | Design Director </p>
-
-        <p> Sheila S.   <img src="./img/hub.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ms-1"> | Documentation</p>
-
-        </div>
-
-        <div class="col-md-4">
-
-
-        <div class="d-flex justify-content-center" >
-
-        <div class="col-md-6">
-
-        <h4>Aceitamos</h4> 
-
-
-        </div>
-
-
-        </div>
-        
-      
-
-       <img src="./img/card.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top ms-1"> 
-
-       <img src="./img/bitcoin.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top ms-1"> 
-
-       <img src="./img/vr.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top ms-1"> 
-
-       </div>
-
-       </div>
-       
-        <p >Siga-nos nas redes sociais:
-
-            <a href="#">Facebook <img src="./img/facebook.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ">  </a> |
-
-            <a href="#">Twitter <img src="./img/twitter.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ">  </a> |
-
-            <a href="#">Instagram <img src="./img/instagram.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ">  </a>
-
-        </p>
 
     </div>
+
+    </div>
+
+    <p>Gustavo O. Andrade  <img src="./img/hub.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ms-1"> | Back-End </p>
+
+    
+
+
+    <p>João M. Lopes Montes  <img src="./img/hub.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ms-1">  | Front-End </p>
+
+    </div>
+
+    <div class="col-md-4">
+
+
+    <div class="d-flex justify-content-center" >
+
+    <div class="col-md-6">
+
+    <h4 style="text-decoration:underline;">Aceitamos</h4> 
+
+
+    </div>
+
+
+    </div>
+    
+  
+
+   <img src="./img/card.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top ms-1"> 
+
+   <img src="./img/bitcoin.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top ms-1"> 
+
+   <img src="./img/vr.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top ms-1"> 
+
+   
+   <div>
+
+    <h4 style="text-decoration:underline;" class="mt-2">Parcerias</h4> 
+
+    <img src="./img/BOILAB.png" alt="Logo" width="150" height="100" class="d-inline-block align-text-top "> 
+
+    </div>
+
+   </div>
+
+   
+   </div>
+   
+    <p >Siga-nos nas redes sociais:
+
+        <a href="#">Facebook <img src="./img/facebook.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ">  </a> |
+
+        <a href="#">Twitter <img src="./img/twitter.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ">  </a> |
+
+        <a href="#">Instagram <img src="./img/instagram.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ">  </a>
+
+    </p>
+
+</div>
+
 
             <!-- Footer Fim  -->
 

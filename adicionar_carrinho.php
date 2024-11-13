@@ -2,6 +2,8 @@
 
 session_start();
 
+include("conexao.php");
+
 if (!isset($_SESSION['carrinho'])) {
     
     $_SESSION['carrinho'] = [];

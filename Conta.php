@@ -2,6 +2,8 @@
 
 session_start();
 
+include("conexao.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -59,7 +61,7 @@ session_start();
 
                 <li class="nav-item me-3">
 
-                    <a class="nav-link text-light" href="#">Kits / Evento</a>
+                    <a class="nav-link text-light" href="kit.php">Kits / Evento</a>
 
                 </li>
 
@@ -90,7 +92,7 @@ session_start();
 
             <div class="text-center mx-3 ">
 
-                <a class="navbar-brand cart-link" href="#">
+                <a class="navbar-brand cart-link" href="#" onclick="openCart()">
 
                     <img src="./img/Carrinho.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top">
 
@@ -113,6 +115,63 @@ session_start();
 
 <!-- Conteudo(Formularios) -->
  
+
+<div id="menudocarro" class="cart-menu">
+
+    <h3 style="padding-left: 1em;">Seu Carrinho <img src="./img/Carrinho.png" width="25px" height="25px" class="mb-2">     <button class="btn btn-danger" onclick="closeCart()">Fechar</button>      <a  href="Deletartudo2.php"><button class="btn btn-warning">Limpar Carrinho</button></a>
+
+    </h3>
+
+    <ul id="cartItemsList">
+
+        <?php
+
+
+ $total = 0;
+
+        if (isset($_SESSION['carrinho']) && !empty($_SESSION['carrinho'])) {
+
+            foreach ($_SESSION['carrinho'] as $item) {
+
+                $total += $item['preco'] * $item['quantidade'];
+
+                echo "<li>
+
+                        <img src='imgProd/{$item['prod_img']}' width='50' height='50'>
+
+                        <span >{$item['prod_nome']} |</span>
+
+                        <span>R$ " . number_format($item['preco'], 2, ',', '.') . "</span>
+
+                        <span>Quantidade: {$item['quantidade']}</span>
+
+                        <a href='Deletaritem.php?id=" . $item["id_produto"] . "'><img  src='./img/excluir.png' width='25px' height='25px' class='mb-1 ms-2'></a>
+
+                    </li>";
+
+            }
+
+        } else {
+
+            echo "<p>Carrinho vazio</p>";
+
+        }
+
+        echo "<h4 style='text-decoration:underline'>Total:" . "R$ " .  number_format($total,2,',','.') . "</h4>"
+        
+        ?>
+
+    </ul>
+
+    
+    <div id="butoesdelcarro">
+
+
+<button class="btn btn-success"> Finalizar Compra</button>
+
+</div>
+</div>
+
 <?php if (isset($_SESSION['error_message'])): ?>
 
 <p class="error-message">
@@ -181,7 +240,7 @@ session_start();
 
             <div class="form-container">
 
-                <form method="post" action="contaCriar.html" class="needs-validation" novalidate>
+                <form method="post" action="contaCriar.php" class="needs-validation" novalidate>
 
                     <div class="text-center">
 
@@ -208,42 +267,41 @@ session_start();
 <!-- Conteudo(Formularios)-End -->
 
 <!-- Footer Inicio -->
-
 <div id="footer">
 
-    <div class="row">
+<div class="row">
 
-    <div class="col-md-4">
+<div class="col-md-4">
 
-        <div class="d-flex justify-content-center" >
+    <div class="d-flex justify-content-center" >
 
-        <div class="col-md-6">
+    <div class="col-md-6">
 
-        <h4>Contate-nos</h4>
-        
-
-        </div>
-
-        </div>
-
-        <div class="d-flex justify-content-center" >
-
-        <p>(11) XXXXX-XXXX</p>  
-
-        <img src="./img/whatsapp.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ms-1 mt-1">
-
-        </div>
+    <h4 style="text-decoration:underline;">Contate-nos</h4>
     
 
-        <div class="d-flex justify-content-center" >
+    </div>
 
-        <p>ContatoChurras@gmail.com</p>  
+    </div>      
 
-        <img src="./img/mail.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ms-1 mt-1">
+    <div class="d-flex justify-content-center" >
 
-        </div>
+    <p>(11)XXXXX-XXXX</p>  
 
-        <div class="d-flex justify-content-center" >
+    <img src="./img/whatsapp.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ms-1 mt-1">
+
+    </div>
+
+
+    <div class="d-flex justify-content-center" >
+
+    <p>ContatoChurras@gmail.com</p>  
+
+    <img src="./img/mail.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ms-1 mt-1">
+
+    </div>
+
+    <div class="d-flex justify-content-center" >
 
     <p>SAC:(11)XXXXX-XXXX</p>  
 
@@ -260,73 +318,80 @@ session_start();
 
     </div>
 
-        </div>
+    </div>
 
-        <div class="col-md-4">
-
-
-        <div class="d-flex justify-content-center" >
-
-        <div class="col-md-6">
-
-        <h4>Desenvolvido Por</h4> 
+    <div class="col-md-4">
 
 
-        </div>
+    <div class="d-flex justify-content-center" >
 
-        </div>
+    <div class="col-md-6">
 
-        <p>Gustavo O. Andrade  <img src="./img/hub.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ms-1"> | Back-End </p>
+    <h4 style="text-decoration:underline;">Desenvolvido Por</h4> 
 
-        
-
-
-        <p>João M. Lopes Montes  <img src="./img/hub.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ms-1">  | Front-End </p>
-
-        <p> Mariane M.   <img src="./img/hub.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ms-1">  | Design Director </p>
-
-        <p> Sheila S.   <img src="./img/hub.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ms-1"> | Documentation</p>
-
-        </div>
-
-        <div class="col-md-4">
-
-
-        <div class="d-flex justify-content-center" >
-
-        <div class="col-md-6">
-
-        <h4>Aceitamos</h4> 
-
-
-        </div>
-
-
-        </div>
-        
-      
-
-       <img src="./img/card.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top ms-1"> 
-
-       <img src="./img/bitcoin.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top ms-1"> 
-
-       <img src="./img/vr.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top ms-1"> 
-
-       </div>
-
-       </div>
-       
-        <p >Siga-nos nas redes sociais:
-
-            <a href="#">Facebook <img src="./img/facebook.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ">  </a> |
-
-            <a href="#">Twitter <img src="./img/twitter.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ">  </a> |
-
-            <a href="#">Instagram <img src="./img/instagram.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ">  </a>
-
-        </p>
 
     </div>
+
+    </div>
+
+    <p>Gustavo O. Andrade  <img src="./img/hub.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ms-1"> | Back-End </p>
+
+    
+
+
+    <p>João M. Lopes Montes  <img src="./img/hub.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ms-1">  | Front-End </p>
+
+    </div>
+
+    <div class="col-md-4">
+
+
+    <div class="d-flex justify-content-center" >
+
+    <div class="col-md-6">
+
+    <h4 style="text-decoration:underline;">Aceitamos</h4> 
+
+
+    </div>
+
+
+    </div>
+    
+  
+
+   <img src="./img/card.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top ms-1"> 
+
+   <img src="./img/bitcoin.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top ms-1"> 
+
+   <img src="./img/vr.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top ms-1"> 
+
+   
+   <div>
+
+    <h4 style="text-decoration:underline;" class="mt-2">Parcerias</h4> 
+
+    <img src="./img/BOILAB.png" alt="Logo" width="150" height="100" class="d-inline-block align-text-top "> 
+
+    </div>
+
+   </div>
+
+   
+   </div>
+   
+    <p >Siga-nos nas redes sociais:
+
+        <a href="#">Facebook <img src="./img/facebook.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ">  </a> |
+
+        <a href="#">Twitter <img src="./img/twitter.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ">  </a> |
+
+        <a href="#">Instagram <img src="./img/instagram.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top ">  </a>
+
+    </p>
+
+</div>
+
     
 <!-- Footer Fim -->
 
@@ -337,6 +402,9 @@ session_start();
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 <script src="javaSC.js"></script>
+
+<script src="carro.js"></script>
+
 
 <!-- Scripts -->
 

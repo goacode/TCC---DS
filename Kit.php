@@ -1,11 +1,14 @@
 <?php
-
 session_start();
 
 include("conexao.php");
 
 
 ?>
+
+
+
+
 
 <!DOCTYPE html>
 
@@ -23,21 +26,26 @@ include("conexao.php");
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"> 
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="stylekit.css">
 
     <link rel="icon" href="./img/Boii.png">
 
 
 </head>
 
+<body>
+
+<!-- NavBar Inicio -->
 
 <div class="Navegacao">
 
     <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
 
+
+    
         <div class="container-fluid">
 
-           <a href="index.php"><img src="./img/Boii.png" height="90" width="90" alt="Logo" class="d-inline-block align-text-top"></a>
+        <a href="index.php"><img src="./img/Boii.png" height="90" width="90" alt="Logo" class="d-inline-block align-text-top"></a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 
@@ -45,27 +53,28 @@ include("conexao.php");
 
             </button>
 
-            <div class="collapse navbar-collapse justify-content-center mx-2" id="navbarNavDropdown">
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
 
                 <ul class="navbar-nav">
 
                 <li class="nav-item me-3">
 
-                        <a class="nav-link text-light" href="#">Home</a>
+                    <a class="nav-link text-light" href="index.php">Home</a>
+
+                </li>
+
+                <li class="nav-item dropdown me-3">
+
+                    <a class="nav-link text-light" href="Carnes.php" >Carnes</a>   
 
                     </li>
 
                     <li class="nav-item me-3">
 
-                        <a class="nav-link text-light" href="Carnes.php">Carnes</a>
+                        <a class="nav-link text-light" href="#">Kits / Evento</a>
 
                     </li>
 
-                    <li class="nav-item me-3">
-
-                        <a class="nav-link text-light" href="Kit.php">Kits / Evento</a>
-
-                    </li>
 
                     <li class="nav-item me-3">
 
@@ -84,31 +93,31 @@ include("conexao.php");
 
                         <div class="text-center mx-2">
 
-                <div class="dropdown">
+                        <div class="dropdown">
 
-            <a class="navbar-brand dropdown-toggle flecha" href="#" role="button" id="configDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-
-
-            <img src="./img/user.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top">
-
-            <?= htmlspecialchars($_SESSION['nome']) ?>
+                        <a class="navbar-brand dropdown-toggle flecha" href="#" role="button" id="configDropdown" data-bs-toggle="dropdown" aria-expanded="false">
 
 
-            </a>
+                            <img src="./img/user.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top">
 
-<ul class="dropdown-menu" aria-labelledby="configDropdown">
+                            <?= htmlspecialchars($_SESSION['nome']) ?>
 
-    <li><a class="dropdown-item" href="#">Meus Pedidos</a></li>
 
-    <li><a class="dropdown-item" href="Dados.php">Meus Dados</a></li>
+                        </a>
 
-</ul>
+                        <ul class="dropdown-menu" aria-labelledby="configDropdown">
 
-</div>
+                            <li><a class="dropdown-item" href="#">Meus Pedidos</a></li>
+
+                            <li><a class="dropdown-item" href="Dados.php">Meus Dados</a></li>
+
+                        </ul>
+
+                        </div>
 
                     <?php else: ?>
 
-                        <a class="navbar-brand  account-link"  href="Conta.php">
+                        <a class="navbar-brand account-link" href="Conta.php">
 
                             <img src="./img/user.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top">
 
@@ -120,9 +129,9 @@ include("conexao.php");
 
                 </div>
 
-                <div class="text-center mx-3  ">
+                <div class="text-center mx-3 ">
 
-                    <a class="navbar-brand cart-link" href="#" onclick="openCart()">
+                    <a class="navbar-brand cart-link" href="#"  onclick="openCart()">
 
                         <img src="./img/Carrinho.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top">
 
@@ -130,13 +139,11 @@ include("conexao.php");
 
                     </a>
 
-                    
                 </div>
-
 
                 <?php if (isset($_SESSION['id_cliente'])): ?>
 
-                    <div class="text-center mx-3">
+                <div class="text-center mx-3">
 
                     <a class="navbar-brand cart-link" href="logout.php">
 
@@ -146,7 +153,7 @@ include("conexao.php");
 
                     </a>
 
-                    </div>
+                </div>
 
                 <?php endif; ?>
 
@@ -157,15 +164,15 @@ include("conexao.php");
 
     </nav>
 
-</div>
 
+</div>
     <!-- NavBar Fim -->
 
-     <!-- Conteudo -->
+    
 
-     <div id="menudocarro" class="cart-menu">
+    <div id="menudocarro" class="cart-menu">
 
-    <h3 style="padding-left: 1em;">Seu Carrinho <img src="./img/Carrinho.png" width="25px" height="25px" class="mb-2">     <button class="btn btn-danger" onclick="closeCart()">Fechar</button>      <a  href="Deletartudo2.php"><button class="btn btn-warning">Limpar Carrinho</button></a>
+    <h3 style="padding-left: 1em;">Seu Carrinho <img src="./img/Carrinho.png" width="25px" height="25px" class="mb-2">     <button class="btn btn-danger" onclick="closeCart()">Fechar</button>      <a  href="Deletartudo.php"><button class="btn btn-warning">Limpar Carrinho</button></a>
 
     </h3>
 
@@ -221,104 +228,103 @@ include("conexao.php");
 
 
 
-
-
-
-
-
-
-
-
-
-<h1 class="Welcoming">Seja Bem-Vindo!</h1>
-
-
-
-<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-    
-  <div class="carousel-inner">
-
-    <div class="carousel-item active" data-bs-interval="5000">
-
-      <img src="./img/carne4.jpg" class="d-block "  alt="...">
-
-    </div>
-
-    <div class="carousel-item" data-bs-interval="5000">
-
-      <img src="./img/carne2.webp" class="d-block " alt="...">
-
-    </div>
-
-    <div class="carousel-item"  data-bs-interval="5000">
-
-      <img src="./img/carne3.jpg" class="d-block "  alt="...">
-
-    </div>
-
-  </div>
-
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-
-    <span class="visually-hidden">Previous</span>
-
-  </button>
-
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-
-    <span class="visually-hidden">Next</span>
-
-  </button>
-
-</div>
-
 <div class="content">
- 
 
-<div class="sobre-nos container my-5">
 
-    <div class="row">
 
-        <div class="col-md-4">
+<div class="container my-5 p-5 rounded shadow formularioo">
 
-            <h3>Sobre Nós</h3>
+    <h2 class="text-center mb-4">Planeje seu Evento</h2>
 
-            <button class="btn btn-success mb-3 about-btn" onclick="showInfo('missao')">Missão</button>
+    <form action="evento.php" method="post" class="needs-validation" novalidate>
 
-            <button class="btn btn-success mb-3 about-btn" onclick="showInfo('visao')">Visão</button>
+        
+        <div class="mb-4">
 
-            <button class="btn btn-success about-btn" onclick="showInfo('valores')">Valores</button>
+            <label for="quantidade_pessoas" class="form-label">Quantidade de Pessoas</label>
+
+            <input type="number" class="form-control" id="quantidade_pessoas" name="quantidade_pessoas" placeholder="Ex: 20" required>
 
         </div>
+        
+        <div class="mb-4">
+            <label class="form-label">Tipos de Carne que você prefere</label>
 
-        <div class="col-md-8">
+            <div class="form-check">
 
-            <div id="aboutContent" class="about-content">
-                
-            <h4>Missão</h4><p>Fornecer produtos de alta qualidade relacionados a churrasco, ajudando nossos clientes a organizar eventos com praticidade.</p> 
+                <input class="form-check-input" type="checkbox" name="carne[]" value="Bovino" id="carneBovino">
+
+                <label class="form-check-label" for="carneBovino">Bovino</label>
+
+            </div>
+
+            <div class="form-check">
+
+                <input class="form-check-input" type="checkbox" name="carne[]" value="Suíno" id="carneSuino">
+
+                <label class="form-check-label" for="carneSuino">Suíno</label>
+
+            </div>
+
+            <div class="form-check">
+
+                <input class="form-check-input" type="checkbox" name="carne[]" value="Cordeiro" id="carneCordeiro">
+
+                <label class="form-check-label" for="carneCordeiro">Cordeiro</label>
+
+            </div>
+
+            <div class="form-check">
+
+                <input class="form-check-input" type="checkbox" name="carne[]" value="Linguiça" id="carneLinguiça">
+
+                <label class="form-check-label" for="carneLinguiça">Linguiça</label>
+
+            </div>
+
+            <div class="form-check">
+
+                <input class="form-check-input" type="checkbox" name="carne[]" value="Frango" id="carneFrango">
+
+                <label class="form-check-label" for="carneFrango">Frango</label>
 
             </div>
 
         </div>
 
-    </div>
+        <div class="mb-4">
+
+            <label for="data_evento" class="form-label">Data do Evento</label>
+
+            <input type="date" class="form-control" id="data_evento" name="data_evento" required>
+
+        </div>
+
+        <div class="mb-4">
+
+            <label for="orcamento" class="form-label">Orçamento (R$)</label>
+
+            <input type="number" class="form-control" id="orcamento" name="orcamento" placeholder="Ex: 500" required>
+
+        </div>
+
+        <div class="text-center">
+
+            <button type="submit" class="btn btn-primary btn-lg">Enviar Informações</button>
+
+        </div>
+
+    </form>
 
 </div>
 
+
 </div>
 
 
+     <!-- Footer Inicio -->
 
-    <!-- Conteudo Fim -->
-
-    
-        <!-- Footer Inicio -->
-
-        <div id="footer">
+     <div id="footer">
 
 <div class="row">
 
@@ -445,10 +451,23 @@ include("conexao.php");
 
         <!-- Footer Fim  -->
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script src="carro.js"></script>
+        <!-- Scripts -->
 
-    <body>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    </html>
+<script type="text/javascript" src="jquery.mask.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script type="text/javascript" src="personalizar.js"></script>
+
+<script src="sidemenu.js"></script>
+
+<script src="carro.js"></script>
+            <!-- Scripts -->
+
+
+</body>
+
+</html>
